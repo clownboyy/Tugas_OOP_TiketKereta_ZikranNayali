@@ -28,7 +28,7 @@ public class PenjualanTiketKereta {
         for (int i = 0; i < daftarTiket.size(); i++) {
             System.out.println((i + 1) + ". " + daftarTiket.get(i).getNama());
         }
-        
+        try {
         System.out.print("\nPilih nomor penumpang untuk lihat detail: ");
         int pilihan = input.nextInt();
 
@@ -37,7 +37,12 @@ public class PenjualanTiketKereta {
 
             daftarTiket.get(pilihan - 1).tampilkanInfo();
         } else {
-            System.out.println("Pilihan tidak valid!");
+            System.out.println("Pilihan tidak valid! Harap Masukkan nomor yang tersedia di daftar.");
         }
+    }
+    catch (Exception e) {
+        System.out.println("Error: Input harus berupa angka!");
+        input.nextLine();
+    }
     }
 }
